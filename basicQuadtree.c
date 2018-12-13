@@ -19,6 +19,8 @@ void makeChildren( Node *node );
 void destroyTree( Node *node );  //Task 1
 void growTree( Node *node );  //Task 1
 
+void removeChildren( Node *parent );  //Task 2
+
 void writeTree( Node *head );
 void writeNode( FILE *fp, Node *node );
 void printOut( FILE *fp, Node *node );
@@ -40,8 +42,22 @@ int main( int argc, char **argv ) {
 	destroyTree( head );*/
 	
 	//Task 1  Number 2
-	growTree( head );
+	/*growTree( head );
 	makeChildren( head->child[1] );
+	destroyTree( head );*/
+
+	//Task 2  Number 1	
+	/*growTree( head );
+	growTree( head );
+	removeChildren( head->child[0] );
+	//destroyTree( head );*/
+
+	//Task 2  Number 1	
+	/*growTree( head );
+	makeChildren( head->child[0] );
+	makeChildren( head->child[1] );
+	removeChildren( head->child[0] );
+	//destroyTree( head );*/
 	
 	// print the tree for Gnuplot
 	writeTree( head );
@@ -84,7 +100,6 @@ void destroyTree( Node *node ) {
 			}
 		}	
 		free( node );
-		node = NULL;
 	}
 	
 }
@@ -124,6 +139,21 @@ void makeChildren( Node *parent ) {
   parent->child[3] = makeNode( x,y+hChild, level+1 );
 
   return;
+}
+
+//remove all children of the parent node         ( Task 2 )
+
+void removeChildren( Node *parent ) {
+	
+	int i;
+	if( parent != NULL ) {
+		for( i=0;i<4;++i ) {
+			if ( parent->child[i] != NULL ) {
+				free( parent->child[i] );
+				parent->child[i] = NULL;
+			}
+		}
+	}
 }
 
 // write out the tree to file 'quad.out'
