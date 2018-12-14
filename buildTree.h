@@ -2,6 +2,7 @@
 
 Node *makeNode( double x, double y, int level );
 void makeChildren( Node *node );
+void growTree( Node *node );  //Task 1
 
 // make a node at given location (x,y) and level
 

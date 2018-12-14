@@ -13,6 +13,8 @@ void makeChildren( Node *node );
 void destroyTree( Node *node );  //Task 1
 void growTree( Node *node );  //Task 1
 
+void removeChildren( Node *parent );  //Task 2
+
 void writeTree( Node *head );
 void writeNode( FILE *fp, Node *node );
 void printOut( FILE *fp, Node *node );
@@ -28,15 +30,18 @@ int main( int argc, char **argv ) {
 	
 	// make a tree
 	
-	//Task 1  test 1
+	//Task 2  test 1	
 	/*growTree( head );
 	growTree( head );
-	destroyTree( head );*/
-	
-	//Task 1  test 2
+	removeChildren( head->child[0] );
+	//destroyTree( head );*/
+
+	//Task 2  test 1	
 	/*growTree( head );
+	makeChildren( head->child[0] );
 	makeChildren( head->child[1] );
-	destroyTree( head );*/
+	removeChildren( head->child[0] );
+	//destroyTree( head );*/
 	
 	// print the tree for Gnuplot
 	writeTree( head );

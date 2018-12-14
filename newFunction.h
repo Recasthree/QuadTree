@@ -36,3 +36,18 @@ void growTree( Node *node ) {
 		}
 	}
 }
+
+//remove all children of the parent node         ( Task 2 )
+
+void removeChildren( Node *parent ) {
+	
+	int i;
+	if( parent != NULL ) {
+		for( i=0;i<4;++i ) {
+			if ( parent->child[i] != NULL ) {
+				free( parent->child[i] );
+				parent->child[i] = NULL;
+			}
+		}
+	}
+}
