@@ -2,6 +2,7 @@
 
 struct qnode {
   int level;
+  int flag;
   double xy[2];
   struct qnode *child[4];
 };
